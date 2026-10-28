@@ -1,0 +1,19 @@
+# Producción/preproducción local: frontend (nginx) + backend (Spring Boot).
+# Supabase es un servicio administrado (no se levanta aquí).
+# Uso: docker compose --env-file .env up --build
+services:
+  backend:
+    build: ./backend
+    env_file: .env
+    ports: ["8080:8080"]
+    restart: unless-stopped
+  frontend:
+    build:
+      context: ./frontend-web
+      args:
+        VITE_SUPABASE_URL: ${VITE_SUPABASE_URL}
+        VITE_SUPABASE_ANON_KEY: ${VITE_SUPABASE_ANON_KEY}
+        VITE_API_BASE_URL: ${VITE_API_BASE_URL}
+    ports: ["80:80"]
+    depends_on: [backend]
+    restart: unless-stopped

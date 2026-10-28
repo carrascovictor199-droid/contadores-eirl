@@ -1,0 +1,27 @@
+# Secretos
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# Node / Vite
+node_modules/
+dist/
+.vite/
+
+# Java / Maven
+target/
+*.class
+*.jar
+.idea/
+*.iml
+.vscode/
+
+# Supabase CLI
+supabase/.branches/
+supabase/.temp/
+
+# SO
+.DS_Store
+Thumbs.db

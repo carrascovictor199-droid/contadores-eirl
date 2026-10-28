@@ -1,0 +1,319 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Contadores EIRL — Contabilidad, tributación y asesoría empresarial</title>
+<meta name="description" content="Estudio contable: contabilidad, declaraciones tributarias, asesoría contable y tributaria, y gestión empresarial.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#1B3A6B;--navy-d:#10264a;--gold:#C8A84B;--ink:#1e293b;--mut:#5b6b82;--bg:#f6f8fb;--line:#e1e7f0}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:72px}
+body{margin:0;font-family:Outfit,system-ui,sans-serif;color:var(--ink);background:var(--bg);line-height:1.6}
+h1,h2,h3{font-family:'DM Serif Display',serif;font-weight:400;color:var(--navy);margin:0;line-height:1.15}
+a{color:inherit;text-decoration:none}.wrap{max-width:1120px;margin:auto;padding:0 20px}
+/* Cabecera */
+header{position:sticky;top:0;z-index:20;background:var(--navy);color:#fff;box-shadow:0 2px 12px #0003}
+.hd{display:flex;align-items:center;justify-content:space-between;height:64px;gap:12px}
+.logo{font:400 24px 'DM Serif Display',serif;white-space:nowrap}.logo b{color:var(--gold);font-weight:400}
+nav{display:flex;gap:26px;font-size:14px}nav a{opacity:.85;padding:4px 0;border-bottom:2px solid transparent}nav a:hover{opacity:1;border-color:var(--gold)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;font:500 14px Outfit;padding:10px 18px;border-radius:9px;border:0;cursor:pointer;background:var(--navy);color:#fff;transition:.2s}
+.btn:hover{filter:brightness(1.12)}.btn:disabled{opacity:.55;cursor:not-allowed}
+.btn.gold{background:var(--gold);color:var(--navy);font-weight:600}.btn.out{background:transparent;color:var(--navy);border:1.5px solid #1B3A6B55}
+.btn.out:hover{background:var(--navy);color:#fff}.hd .out{color:#fff;border-color:#ffffff66}.hd .out:hover{background:#fff;color:var(--navy)}
+.acts{display:flex;gap:8px;align-items:center}.burger{display:none;background:none;border:0;color:#fff;font-size:26px;cursor:pointer}
+/* Hero */
+.hero{background:radial-gradient(1200px 400px at 80% -10%,#2c5aa066,transparent),linear-gradient(135deg,var(--navy),var(--navy-d));color:#fff;padding:96px 0 88px;text-align:center;position:relative}
+.hero:after{content:"";position:absolute;left:50%;bottom:0;width:120px;height:4px;background:var(--gold);transform:translateX(-50%)}
+.hero h1{color:#fff;font-size:clamp(34px,6vw,60px);max-width:16ch;margin:0 auto}
+.hero p{max-width:56ch;margin:18px auto 30px;font-size:18px;font-weight:300;color:#dbe5f5}
+.hero .btn{padding:14px 30px;font-size:16px}
+.stats{display:flex;justify-content:center;gap:40px;margin-top:46px;flex-wrap:wrap}.stats div{font-size:13px;color:#b9c8e3}.stats b{display:block;font:400 30px 'DM Serif Display',serif;color:var(--gold)}
+/* Secciones */
+section{padding:72px 0}.tt{text-align:center;margin-bottom:38px}.tt h2{font-size:clamp(28px,4vw,40px)}
+.tt p{color:var(--mut);margin:10px auto 0;max-width:52ch}.tt:after{content:"";display:block;width:56px;height:3px;background:var(--gold);margin:16px auto 0}
+.grid{display:grid;gap:20px;grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}
+.card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:26px;transition:.25s;border-top:3px solid transparent}
+.card:hover{transform:translateY(-4px);box-shadow:0 14px 30px #1b3a6b1f;border-top-color:var(--gold)}
+.ic{width:52px;height:52px;border-radius:12px;background:#1B3A6B12;display:grid;place-items:center;font-size:26px;margin-bottom:14px}
+.card h3{font-size:22px;margin-bottom:6px}.card p{margin:0 0 16px;color:var(--mut);font-size:15px}
+.alt{background:#fff}.ben{display:flex;gap:14px;align-items:flex-start;padding:20px;border-left:4px solid var(--gold);background:var(--bg);border-radius:0 12px 12px 0}
+.ben span{font-size:24px}.ben h3{font:600 17px Outfit;color:var(--navy)}.ben p{margin:2px 0 0;color:var(--mut);font-size:14px}
+.cta{background:linear-gradient(135deg,var(--navy),var(--navy-d));color:#fff;text-align:center;padding:60px 0}.cta h2{color:#fff;font-size:clamp(26px,4vw,38px)}.cta p{color:#c9d6ee;margin:10px 0 24px}
+#testimonios[hidden]{display:none}
+/* Contacto */
+.contact{display:grid;gap:36px;grid-template-columns:1fr 1.25fr;align-items:start}
+.info h2{font-size:clamp(28px,4vw,38px);margin-bottom:12px}.info p{color:var(--mut)}.info li{margin:10px 0;list-style:none}
+form{background:#fff;border:1px solid var(--line);border-radius:16px;padding:28px;box-shadow:0 18px 40px #1b3a6b14;display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.f{display:flex;flex-direction:column;gap:5px}.f.w{grid-column:1/-1}
+label{font-size:12px;font-weight:500;color:#475569}
+input,select,textarea{font:400 15px Outfit;padding:11px 12px;border:1.5px solid #cbd5e1;border-radius:9px;background:#fff;color:var(--ink);width:100%}
+input:focus,select:focus,textarea:focus{outline:none;border-color:var(--navy);box-shadow:0 0 0 3px #1B3A6B22}
+.err input,.err select{border-color:#dc2626}.em{color:#dc2626;font-size:12px;min-height:0}
+.hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+.msg{grid-column:1/-1;padding:11px 14px;border-radius:9px;font-size:14px}.msg.e{background:#fef2f2;color:#b91c1c}.msg.i{background:#fffbeb;color:#92400e}
+.ok{text-align:center;padding:40px 10px;grid-column:1/-1}.ok .c{width:72px;height:72px;border-radius:50%;background:#16a34a1a;color:#16a34a;display:grid;place-items:center;font-size:38px;margin:0 auto 14px}
+dialog{border:0;border-radius:16px;padding:0;max-width:560px;max-height:92vh;overflow:auto;width:calc(100% - 32px);box-shadow:0 30px 80px #0006}dialog::backdrop{background:#0a1a36b3}
+.dlg{padding:26px;display:grid;grid-template-columns:1fr 1fr;gap:14px}.dlg h2{grid-column:1/-1;font-size:28px}.dlg .sub{grid-column:1/-1;margin:-6px 0 0;color:var(--mut);font-size:14px}
+.dlg .x{position:absolute;right:14px;top:10px;background:none;border:0;font-size:26px;cursor:pointer;color:#64748b}
+.m{display:none}
+footer{background:var(--navy-d);color:#9fb2d4;padding:30px 0;font-size:13px}.ft{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
+@media(max-width:820px){.m{display:block}.dlg{grid-template-columns:1fr}nav{display:none;position:absolute;top:64px;left:0;right:0;background:var(--navy);flex-direction:column;padding:12px 20px 20px;gap:14px}
+ nav.open{display:flex}.burger{display:block}.acts .out{display:none}.contact{grid-template-columns:1fr}form{grid-template-columns:1fr}.hero{padding:70px 0 64px}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap hd">
+    <a href="#inicio" class="logo">Contadores <b>EIRL</b></a>
+    <nav id="menu" aria-label="Principal">
+      <a href="#inicio">Inicio</a><a href="#servicios">Servicios</a><a href="#nosotros">Nosotros</a><a href="#contacto">Contacto</a>
+      <a class="m" href="#" id="nav-cuenta">Crear cuenta</a><a class="m" href="#" id="nav-ingresar">Ingresar</a>
+    </nav>
+    <div class="acts">
+      <a class="btn out" id="ingresar" href="#">Ingresar</a>
+      <button class="btn out" id="abrir-cuenta" type="button">Crear cuenta</button>
+      <a class="btn gold" href="#contacto">Solicitar asesoría</a>
+      <button class="burger" id="burger" aria-label="Abrir menú">☰</button>
+    </div>
+  </div>
+</header>
+
+<main>
+<div id="inicio" class="hero">
+  <div class="wrap">
+    <h1>Tu tranquilidad contable y tributaria</h1>
+    <p>Contabilidad, declaraciones y asesoría especializada para que tu empresa crezca con orden y cumplimiento.</p>
+    <a class="btn gold" href="#contacto">Solicitar asesoría</a>
+    <div class="stats"><div><b>100%</b>Cumplimiento ante SUNAT</div><div><b>24/7</b>Portal en línea para clientes</div><div><b>1 a 1</b>Atención personalizada</div></div>
+  </div>
+</div>
+
+<section id="servicios">
+  <div class="wrap">
+    <div class="tt"><h2>Nuestros servicios</h2><p>Soluciones integrales para personas y empresas.</p></div>
+    <div class="grid" id="lista-servicios"></div>
+  </div>
+</section>
+
+<section id="nosotros" class="alt">
+  <div class="wrap">
+    <div class="tt"><h2>¿Por qué elegirnos?</h2><p>Un estudio contable que combina experiencia profesional con tecnología.</p></div>
+    <div class="grid">
+      <div class="ben"><span>🎓</span><div><h3>Contadores colegiados</h3><p>Atención personalizada de profesionales con experiencia.</p></div></div>
+      <div class="ben"><span>📅</span><div><h3>Cumplimiento puntual</h3><p>Declaraciones y obligaciones tributarias siempre a tiempo.</p></div></div>
+      <div class="ben"><span>💻</span><div><h3>Portal en línea</h3><p>Sigue tus servicios, solicitudes y documentos desde cualquier lugar.</p></div></div>
+      <div class="ben"><span>🔒</span><div><h3>Información protegida</h3><p>Tus datos están resguardados con seguridad de nivel empresarial.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section id="testimonios" hidden>
+  <div class="wrap"><div class="tt"><h2>Testimonios</h2></div><div class="grid" id="lista-testimonios"></div></div>
+</section>
+
+<div class="cta"><div class="wrap"><h2>¿Listo para ordenar tus cuentas?</h2><p>Cuéntanos tu caso y te contactaremos a la brevedad.</p><a class="btn gold" href="#contacto">Solicitar asesoría</a></div></div>
+
+<section id="contacto">
+  <div class="wrap contact">
+    <div class="info">
+      <h2>Solicita tu asesoría</h2>
+      <p>Completa el formulario y un contador de nuestro equipo se pondrá en contacto contigo.</p>
+      <ul><li>✔ Respuesta rápida</li><li>✔ Primera orientación sin compromiso</li><li>✔ Tus datos se tratan con confidencialidad</li></ul>
+    </div>
+    <form id="form" novalidate>
+      <div class="f"><label for="nombre">Nombre completo *</label><input id="nombre" autocomplete="name" maxlength="150"><span class="em"></span></div>
+      <div class="f"><label for="documento">DNI / RUC *</label><input id="documento" inputmode="numeric" maxlength="11" autocomplete="off"><span class="em"></span></div>
+      <div class="f"><label for="empresa">Empresa / razón social</label><input id="empresa" maxlength="200" autocomplete="organization"></div>
+      <div class="f"><label for="telefono">Teléfono *</label><input id="telefono" inputmode="tel" maxlength="20" autocomplete="tel"><span class="em"></span></div>
+      <div class="f"><label for="correo">Correo electrónico *</label><input id="correo" type="email" maxlength="254" autocomplete="email"><span class="em"></span></div>
+      <div class="f"><label for="servicio">Servicio de interés</label><select id="servicio"><option value="">Seleccionar…</option></select></div>
+      <div class="f w"><label for="mensaje">Mensaje</label><textarea id="mensaje" rows="4" maxlength="2000"></textarea></div>
+      <div class="hp" aria-hidden="true"><label>No completar<input id="web" tabindex="-1" autocomplete="off"></label></div>
+      <div id="aviso" class="msg" hidden></div>
+      <div class="f w"><button class="btn gold" id="enviar" type="submit" style="padding:14px">Enviar solicitud</button></div>
+    </form>
+  </div>
+</section>
+</main>
+
+<dialog id="dlg-cuenta">
+  <form class="dlg" id="form-cuenta" method="dialog" novalidate style="border:0;box-shadow:none;border-radius:16px">
+    <button class="x" type="button" id="cerrar-cuenta" aria-label="Cerrar">×</button>
+    <h2>Crear cuenta</h2><p class="sub">Regístrate con tu RUC o DNI y accede a tu portal para seguir tus servicios, solicitudes y documentos.</p>
+    <div class="f"><label for="c-doc">RUC de tu empresa *</label><input id="c-doc" inputmode="numeric" maxlength="11" autocomplete="off"><span class="em"></span></div>
+    <div class="f"><label for="c-razon" id="l-razon">Razón social (SUNAT)</label><input id="c-razon" maxlength="200" readonly placeholder="Se completa al escribir tu RUC"><span class="em"></span></div>
+    <div class="f"><label for="c-comercial">Nombre comercial (SUNAT)</label><input id="c-comercial" maxlength="200" readonly></div>
+    <div class="f"><label for="c-dir">Dirección fiscal (SUNAT)</label><input id="c-dir" maxlength="300" readonly></div>
+    <div class="f"><label for="c-nombre">Tu nombre completo *</label><input id="c-nombre" autocomplete="name" maxlength="150"><span class="em"></span></div>
+    <div class="f"><label for="c-tel">Teléfono *</label><input id="c-tel" inputmode="tel" maxlength="20" autocomplete="tel"><span class="em"></span></div>
+    <div class="f" style="grid-column:1/-1"><label for="c-correo">Correo electrónico *</label><input id="c-correo" type="email" maxlength="254" autocomplete="email"><span class="em"></span></div>
+    <div class="f"><label for="c-clave">Contraseña *</label><input id="c-clave" type="password" autocomplete="new-password"><span class="em"></span></div>
+    <div class="f"><label for="c-clave2">Repetir contraseña *</label><input id="c-clave2" type="password" autocomplete="new-password"><span class="em"></span></div>
+    <div id="aviso-cuenta" class="msg" hidden></div>
+    <div class="f w"><button class="btn gold" id="enviar-cuenta" type="submit" style="padding:13px">Crear cuenta</button></div>
+    <p class="sub" style="grid-column:1/-1;text-align:center;margin:0">¿Ya tienes cuenta? <a id="ya-cuenta" href="#" style="color:var(--navy);text-decoration:underline">Iniciar sesión</a></p>
+  </form>
+</dialog>
+
+<footer><div class="wrap ft"><span>© <span id="anio"></span> Contadores EIRL. Todos los derechos reservados.</span><span>Contabilidad · Tributación · Asesoría</span></div></footer>
+
+<script>
+/* ============ CONFIGURACIÓN (cambia estos 3 valores) ============ */
+const CONFIG = {
+  SUPABASE_URL: "https://rtgjbygrrraemvmpqwsw.supabase.co",   // Supabase → Settings → API → Project URL
+  SUPABASE_ANON_KEY: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJ0Z2pieWdycnJhZW12bXBxd3N3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTIyMDcyNTIsImV4cCI6MjEwNzc4MzI1Mn0.ncxG0dAf42of-pHK6_mwd7CWQ8hcDKXr2NFzGeeOngo",           // Supabase → Settings → API → anon public key (NO la service_role)
+  APP_URL: "http://localhost:5173",                    // dirección de la plataforma de clientes/personal (botón "Ingresar")
+  API_URL: "http://localhost:8080/api"                 // backend (verifica el RUC en SUNAT al crear la cuenta)
+};
+/* ================================================================== */
+
+// Servicios de respaldo: se usan si Supabase aún no está configurado o no responde.
+const SERVICIOS_BASE = [
+  { codigo:"CONTABILIDAD", nombre:"Contabilidad", descripcion:"Registro, libros contables y estados financieros de tu negocio.", icono:"calculator" },
+  { codigo:"DECLARACIONES", nombre:"Declaraciones tributarias", descripcion:"Preparación y presentación de declaraciones mensuales y anuales.", icono:"file-text" },
+  { codigo:"ASESORIA_CONTABLE", nombre:"Asesoría contable", descripcion:"Orientación contable personalizada para tomar mejores decisiones.", icono:"book-open" },
+  { codigo:"ASESORIA_TRIBUTARIA", nombre:"Asesoría tributaria", descripcion:"Planificación tributaria y cumplimiento de obligaciones con SUNAT.", icono:"scale" },
+  { codigo:"GESTION_EMPRESARIAL", nombre:"Gestión empresarial", descripcion:"Constitución, trámites y acompañamiento en la gestión de tu empresa.", icono:"briefcase" },
+  { codigo:"OTROS", nombre:"Otros servicios", descripcion:"Cuéntanos tu necesidad y diseñamos una solución a medida.", icono:"more-horizontal" }
+];
+// Testimonios reales: agrégalos aquí como { texto:"...", autor:"Nombre, Empresa" } y la sección aparecerá sola.
+const TESTIMONIOS = [];
+const ICONOS = { calculator:"🧮","file-text":"📄","book-open":"📘",scale:"⚖️",briefcase:"💼","more-horizontal":"✨" };
+
+const $ = id => document.getElementById(id);
+const configurado = !CONFIG.SUPABASE_URL.includes("TU-PROYECTO") && !CONFIG.SUPABASE_ANON_KEY.startsWith("TU-");
+const H = { apikey: CONFIG.SUPABASE_ANON_KEY, Authorization: "Bearer " + CONFIG.SUPABASE_ANON_KEY };
+let servicios = SERVICIOS_BASE, desdeBD = false;
+
+/* ---------- Validaciones (misma lógica que el sistema) ---------- */
+function validarRuc(r){
+  if(!/^\d{11}$/.test(r)||!["10","15","16","17","20"].includes(r.slice(0,2)))return false;
+  const p=[5,4,3,2,7,6,5,4,3,2];let s=0;for(let i=0;i<10;i++)s+=p[i]*+r[i];
+  let d=11-(s%11);if(d===10)d=0;if(d===11)d=1;return d===+r[10];
+}
+const validarDoc = d => /^\d{8}$/.test(d) || validarRuc(d);
+const validarCorreo = c => /^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(c);
+const validarTel = t => /^[0-9+() -]{6,20}$/.test(t);
+
+/* ---------- Servicios ---------- */
+function pintarServicios(){
+  $("lista-servicios").innerHTML = servicios.map((s,i)=>`
+    <article class="card"><div class="ic">${ICONOS[s.icono]||"📊"}</div><h3>${esc(s.nombre)}</h3><p>${esc(s.descripcion||"")}</p>
+    <button class="btn out" data-i="${i}">Solicitar</button></article>`).join("");
+  $("servicio").innerHTML = '<option value="">Seleccionar…</option>' + servicios.map((s,i)=>`<option value="${i}">${esc(s.nombre)}</option>`).join("");
+  document.querySelectorAll("#lista-servicios button").forEach(b=>b.addEventListener("click",()=>{
+    $("servicio").value=b.dataset.i; location.hash="#contacto"; setTimeout(()=>$("nombre").focus(),400);
+  }));
+}
+function esc(t){return String(t).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]))}
+
+async function cargarServicios(){
+  pintarServicios();
+  if(!configurado) return;
+  try{
+    const r = await fetch(`${CONFIG.SUPABASE_URL}/rest/v1/servicios?select=id,nombre,descripcion,icono&activo=eq.true&order=nombre`,{headers:H});
+    if(!r.ok) throw 0;
+    const data = await r.json();
+    if(Array.isArray(data)&&data.length){ servicios=data; desdeBD=true; pintarServicios(); }
+  }catch(_){ /* se mantiene el listado de respaldo */ }
+}
+
+/* ---------- Formulario → Supabase (tabla leads, estado NUEVO) ---------- */
+function marcar(id,msg){const f=$(id).closest(".f");f.classList.toggle("err",!!msg);const e=f.querySelector(".em");if(e)e.textContent=msg||"";return !msg}
+function aviso(t,tipo){const a=$("aviso");a.hidden=!t;a.textContent=t||"";a.className="msg "+(tipo||"e")}
+
+$("documento").addEventListener("input",e=>e.target.value=e.target.value.replace(/\D/g,""));
+$("form").addEventListener("submit",async ev=>{
+  ev.preventDefault(); aviso("");
+  if($("web").value) return;                               // honeypot anti-bots
+  const v={nombre:$("nombre").value.trim().replace(/\s+/g," "),doc:$("documento").value,tel:$("telefono").value.trim(),correo:$("correo").value.trim()};
+  const ok=[
+    marcar("nombre",v.nombre.length<2?"Ingresa tu nombre completo":""),
+    marcar("documento",validarDoc(v.doc)?"":"DNI (8 dígitos) o RUC (11) no válido"),
+    marcar("telefono",validarTel(v.tel)?"":"Teléfono no válido"),
+    marcar("correo",validarCorreo(v.correo)?"":"Correo no válido")
+  ].every(Boolean);
+  if(!ok) return;
+  if(!configurado){ aviso("Falta configurar Supabase en CONFIG (URL y anon key) dentro de index.html.","i"); return; }
+
+  const sel = servicios[$("servicio").value];
+  let mensaje = $("mensaje").value.trim();
+  if(sel && !desdeBD) mensaje = `[Servicio de interés: ${sel.nombre}] ${mensaje}`.trim();
+  const body = { nombre_completo:v.nombre, documento:v.doc, empresa:$("empresa").value.trim()||null, telefono:v.tel, correo:v.correo,
+                 servicio_id:(sel&&desdeBD)?sel.id:null, mensaje:mensaje||null };
+  const btn=$("enviar"); btn.disabled=true; btn.textContent="Enviando…";
+  try{
+    const r = await fetch(`${CONFIG.SUPABASE_URL}/rest/v1/leads`,{method:"POST",headers:{...H,"Content-Type":"application/json",Prefer:"return=minimal"},body:JSON.stringify(body)});
+    if(!r.ok) throw new Error(r.status);
+    $("form").innerHTML = `<div class="ok"><div class="c">✔</div><h2>¡Solicitud recibida!</h2><p style="color:#5b6b82">Gracias, ${esc(v.nombre.split(" ")[0])}. Un contador de nuestro equipo te contactará muy pronto.</p><button class="btn" type="button" onclick="location.reload()">Enviar otra solicitud</button></div>`;
+  }catch(_){
+    aviso("No pudimos registrar tu solicitud. Verifica tu conexión e inténtalo nuevamente.");
+    btn.disabled=false; btn.textContent="Enviar solicitud";
+  }
+});
+
+/* ---------- Crear cuenta (Supabase Auth) ---------- */
+const dlg = $("dlg-cuenta");
+const CLAVE_OK = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$/;
+function avisoCuenta(t,tipo){const a=$("aviso-cuenta");a.hidden=!t;a.textContent=t||"";a.className="msg "+(tipo||"e")}
+function abrirCuenta(e){ if(e) e.preventDefault(); $("menu").classList.remove("open"); avisoCuenta(""); dlg.showModal(); }
+["abrir-cuenta","nav-cuenta"].forEach(id=>$(id).addEventListener("click",abrirCuenta));
+$("cerrar-cuenta").addEventListener("click",()=>dlg.close());
+dlg.addEventListener("click",e=>{ if(e.target===dlg) dlg.close(); });
+let rucOk="";
+$("c-doc").addEventListener("input",async e=>{
+  e.target.value=e.target.value.replace(/\D/g,"");
+  const ruc=e.target.value; rucOk="";
+  ["c-razon","c-comercial","c-dir"].forEach(id=>{$(id).value="";});
+  if(ruc.length<11){ marcar("c-doc",""); return; }
+  if(!validarRuc(ruc)){ marcar("c-doc","RUC no válido"); return; }
+  marcar("c-doc","");
+  try{
+    const r=await fetch(`${CONFIG.API_URL}/public/ruc/${ruc}`); const b=await r.json().catch(()=>({}));
+    if($("c-doc").value!==ruc) return;   // el visitante cambió el número mientras se consultaba
+    if(!r.ok){ marcar("c-doc",b.message||"No se pudo consultar el RUC"); return; }
+    rucOk=ruc; $("c-razon").value=b.razonSocial||""; $("c-comercial").value=b.nombreComercial||""; $("c-dir").value=b.direccion||"";
+  }catch(_){ if($("c-doc").value===ruc) marcar("c-doc","No pudimos consultar el RUC. Inténtalo en unos minutos."); }
+});
+$("ya-cuenta").href = CONFIG.APP_URL + "/login";
+$("form-cuenta").addEventListener("submit",async ev=>{
+  ev.preventDefault(); avisoCuenta("");
+  const v={doc:$("c-doc").value,razon:$("c-razon").value.trim().replace(/\s+/g," "),comercial:$("c-comercial").value.trim(),dir:$("c-dir").value.trim(),
+           nombre:$("c-nombre").value.trim().replace(/\s+/g," "),tel:$("c-tel").value.trim(),correo:$("c-correo").value.trim(),clave:$("c-clave").value};
+  const ok=[
+    marcar("c-doc",(v.doc.length===11&&validarRuc(v.doc)&&rucOk===v.doc)?"":"Escribe un RUC válido que exista en SUNAT"),
+    marcar("c-razon",v.razon.length<2?"Se completa con el RUC":""),
+    marcar("c-nombre",v.nombre.length<2?"Ingresa tu nombre completo":""),
+    marcar("c-tel",validarTel(v.tel)?"":"Teléfono no válido"),
+    marcar("c-correo",validarCorreo(v.correo)?"":"Correo no válido"),
+    marcar("c-clave",CLAVE_OK.test(v.clave)?"":"Mín. 8, con mayúscula, minúscula y número"),
+    marcar("c-clave2",$("c-clave2").value===v.clave?"":"No coinciden")
+  ].every(Boolean);
+  if(!ok) return;
+  if(!CONFIG.API_URL){ avisoCuenta("Falta configurar API_URL en CONFIG dentro de index.html.","i"); return; }
+  const btn=$("enviar-cuenta"); btn.disabled=true; btn.textContent="Creando cuenta…";
+  try{
+    const r = await fetch(`${CONFIG.API_URL}/public/registro`,{method:"POST",headers:{"Content-Type":"application/json"},
+      body:JSON.stringify({ruc:v.doc,nombre:v.nombre,telefono:v.tel,correo:v.correo,password:v.clave})});
+    const resp = await r.json().catch(()=>({}));
+    if(!r.ok) throw new Error(resp.message||"No se pudo crear la cuenta. Revisa los datos e inténtalo nuevamente.");
+    $("form-cuenta").innerHTML=`<div class="ok" style="grid-column:1/-1"><div class="c">📧</div><h2>Revisa tu correo</h2><p style="color:#5b6b82">Enviamos un enlace de confirmación a <b>${esc(v.correo)}</b>. Al confirmarlo e iniciar sesión, tu portal se creará con los datos de tu registro.</p><a class="btn" href="${esc(CONFIG.APP_URL)}/login">Ir a iniciar sesión</a></div>`;
+  }catch(err){ avisoCuenta(err.message); btn.disabled=false; btn.textContent="Crear cuenta"; }
+});
+
+/* ---------- Varios ---------- */
+$("burger").addEventListener("click",()=>$("menu").classList.toggle("open"));
+document.querySelectorAll("nav a").forEach(a=>a.addEventListener("click",()=>$("menu").classList.remove("open")));
+$("ingresar").href = CONFIG.APP_URL + "/login"; $("nav-ingresar").href = CONFIG.APP_URL + "/login";
+$("anio").textContent = new Date().getFullYear();
+if(TESTIMONIOS.length){
+  $("testimonios").hidden=false;
+  $("lista-testimonios").innerHTML=TESTIMONIOS.map(t=>`<blockquote class="card" style="margin:0">“${esc(t.texto)}”<footer style="margin-top:10px;color:#5b6b82;font-size:14px">— ${esc(t.autor)}</footer></blockquote>`).join("");
+}
+cargarServicios();
+</script>
+</body>
+</html>

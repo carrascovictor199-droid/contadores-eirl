@@ -1,0 +1,12 @@
+BASE DE DATOS — CONTADORES EIRL (para el SQL Editor de Supabase)
+
+1) Supabase -> SQL Editor -> New query
+2) Pega TODO el contenido de  1_base_de_datos_completa.sql  y pulsa Run
+   (el resultado final debe mostrar tablas_con_rls = 14).
+3) Authentication -> Users -> Add user (tu correo y contraseña).
+4) SQL Editor -> pega  2_crear_administrador.sql  (cambia el correo) -> Run.
+5) Authentication -> URL Configuration: Site URL = http://localhost:5173
+   y en Redirect URLs agrega:  http://localhost:5173/login  y  http://localhost:5173/restablecer-contrasena
+6) Authentication -> Providers -> Email: deja activada "Confirm email" (necesaria para crear cuentas de forma segura).
+
+Si algo falla y quedó a medias: ejecuta 0_reiniciar_base_de_datos.sql (borra datos) y repite desde el paso 2.
